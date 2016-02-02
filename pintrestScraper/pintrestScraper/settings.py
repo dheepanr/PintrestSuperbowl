@@ -49,9 +49,9 @@ NEWSPIDER_MODULE = 'pintrestScraper.spiders'
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
-DOWNLOADER_MIDDLEWARES = {
-   'pintrestScraper.middleware.JsDownload': 110,
-}
+#DOWNLOADER_MIDDLEWARES = {
+#   'pintrestScraper.middleware.JsDownload': 110,
+#}
 
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
