@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="../PintrestSuperbowl/nvd3/build/nv.d3.css" rel="stylesheet" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script>
+    <script src="../PintrestSuperbowl/nvd3/build/nv.d3.js"></script>
+
+    <style>
+        text {
+            font: 12px sans-serif;
+        }
+        svg {
+            display: block;
+        }
+        html, body, #test1, svg {
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div id="test1" class='with-3d-shadow with-transitions'>
+    <svg></svg>
+</div>
+
+<script>
+
+    var data = [{"key":"Group 0 ", "values": [{"z":"MEAT","x":32.93,"y":2464.88},{"z":"GARLIC","x":28.13,"y":1741.52},{"z":"POWDER","x":25.47,"y":1217.13},{"z":"SALT","x":25.47,"y":1868.52},{"z":"BUTTER","x":24.67,"y":2566.14},{"z":"BAKED GOODS","x":23.6,"y":2777.35},{"z":"ONION","x":23.6,"y":1717.91},{"z":"VINEGAR","x":23.07,"y":1856.31},{"z":"PEPPER","x":22.8,"y":2137.27},{"z":"BREAD","x":21.87,"y":2812.11},{"z":"CHEESE","x":21.2,"y":2442.2},{"z":"CREAM CHEESE","x":20.4,"y":2110.81},{"z":"OIL","x":20.13,"y":2010.82},{"z":"SAUCE","x":19.33,"y":2329.7},{"z":"REFRIGERATE","x":18.67,"y":2673.9},{"z":"SUGAR","x":18.13,"y":1023.24},{"z":"FLOUR","x":16.4,"y":3150.65},{"z":"SEED","x":15.2,"y":1013.98},{"z":"CLOVE","x":14.4,"y":1708.8},{"z":"BAKE","x":13.73,"y":1787.55},{"z":"SNACK","x":13.6,"y":1677.52},{"z":"WATER","x":13.07,"y":2700.35},{"z":"FRESH","x":12.93,"y":1605.8},{"z":"EGG","x":12.8,"y":2607.35},{"z":"GREEN","x":12.8,"y":1791.96},{"z":"LIQUID","x":12.53,"y":1596.52},{"z":"PACKAGE","x":11.47,"y":3148.86},{"z":"CHEDDAR CHEESE","x":11.2,"y":3889.17},{"z":"BROWN SUGAR","x":11.07,"y":3301.6},{"z":"SLICE","x":11.07,"y":2251.25},{"z":"LARGE","x":10.93,"y":1794.15},{"z":"MILK","x":10.4,"y":2423.27},{"z":"OLIVE OIL","x":10.4,"y":1144.55},{"z":"SOUR CREAM","x":10.4,"y":2221.14},{"z":"GROUND","x":9.73,"y":1317.83},{"z":"CHILI","x":9.47,"y":1336.8},{"z":"DRY","x":9.33,"y":3789.18},{"z":"RED","x":9.07,"y":2262.73},{"z":"VANILLA","x":9.07,"y":1514.55},{"z":"BLACK PEPPER","x":8.93,"y":1493.84},{"z":"MIX","x":8.27,"y":2773.07},{"z":"PARMESAN CHEESE","x":8.27,"y":3488.41},{"z":"TOMATO","x":8.27,"y":1348.28},{"z":"GRATE","x":7.87,"y":4185.09},{"z":"WHITE","x":7.87,"y":967.44},{"z":"JUICE","x":7.6,"y":798.47},{"z":"LIME","x":7.6,"y":721.42},{"z":"NUT","x":7.6,"y":1012.42},{"z":"UNSALTED","x":7.6,"y":2489.27},{"z":"HOT","x":7.47,"y":2685.4},{"z":"KOSHER","x":7.33,"y":3770.98},{"z":"VEGETABLE","x":7.33,"y":2925.18},{"z":"CHICKEN","x":7.2,"y":2193.79},{"z":"CHOCOLATE","x":7.2,"y":685.9},{"z":"MOZZARELLA","x":7.07,"y":2644.98},{"z":"SMALL","x":6.93,"y":1447.73},{"z":"ALL-PURPOSE","x":6.8,"y":1253.52},{"z":"BACON","x":6.8,"y":2978.08},{"z":"CUMIN","x":6.53,"y":1180.05},{"z":"LBS","x":6.53,"y":1011.64},{"z":"SALT OIL","x":6.53,"y":1223.53},{"z":"BAG","x":6.13,"y":1695.95},{"z":"JALAPENO","x":6.13,"y":2176.24},{"z":"OZ.","x":6.13,"y":1615.1},{"z":"CAYENNE","x":5.73,"y":2841.91},{"z":"CILANTRO","x":5.73,"y":1156.93},{"z":"CORN","x":5.73,"y":2178.5},{"z":"TORTILLA","x":5.73,"y":2774.73},{"z":"EXTRACT","x":5.47,"y":2112.59},{"z":"GOODS","x":5.47,"y":1314.54},{"z":"PRETZEL","x":5.47,"y":1261.15},{"z":"WINE","x":5.47,"y":809.6},{"z":"GRANULATE","x":5.33,"y":427.27},{"z":"LIGHT","x":5.33,"y":5355.92}]
+
+
+}]
+    nv.utils.symbolMap.set('thin-x', function(size) {
+        size = Math.sqrt(size);
+        return 'M' + (-size/2) + ',' + (-size/2) +
+                'l' + size + ',' + size +
+                'm0,' + -(size) +
+                'l' + (-size) + ',' + size;
+    });
+    // register our custom symbols to nvd3
+    // make sure your path is valid given any size because size scales if the chart scales.
+    // create the chart
+    var chart;
+    nv.addGraph(function() {
+        chart = nv.models.scatterChart()
+            .showDistX(true)
+            .showDistY(true)
+            .useVoronoi(true)
+            .color(d3.scale.category10().range())
+            .duration(300)
+        ;
+        chart.dispatch.on('renderEnd', function(){
+            console.log('render complete');
+        });
+
+        chart.xAxis.tickFormat(d3.format('.02f'));
+        chart.yAxis.tickFormat(d3.format('.02f'));
+
+        d3.select('#test1 svg')
+            .datum(data)
+            .call(chart);
+
+
+
+        chart.tooltip.contentGenerator(function (d) {
+          var ptIdx = d.pointIndex;
+          var serIdx = d.seriesIndex;
+          z = d.series[serIdx].values[ptIdx].z
+          x = d.series[serIdx].values[ptIdx].x
+          y = d.series[serIdx].values[ptIdx].y
+          return "<h3>"+"Ingredient:"+z+"</h3>"+'\n'+"<b>Repins:</b>"+y+'\n'+ "<b>Percent of Mentions</b>"+x;
+        });
+        return chart;
+    });
+
+</script>
+</body>
+</html>

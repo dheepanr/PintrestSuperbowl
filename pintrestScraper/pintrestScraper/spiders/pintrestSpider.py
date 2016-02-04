@@ -16,7 +16,7 @@ from pintrestScraper.items import PinterestscraperItem
 class PintrestSpyder(scrapy.Spider):
 	name = 'pintrest'
 	allowed_domains =["pinterest.com"]
-	start_urls =["https://www.pinterest.com/search/pins/?q=superbowl+desserts"]
+	start_urls =["https://www.pinterest.com/search/pins/?q=superbowl"]
 
 	def parse(self, response):
 
@@ -52,6 +52,8 @@ class PintrestSpyder(scrapy.Spider):
 			url = response.urljoin(pinurl)
 			print url
 			yield scrapy.Request(url, callback=self.parsePin)
+
+		driver.quit()
 
 	def parsePin(self, response):
 			item = PinterestscraperItem()
