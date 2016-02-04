@@ -1,0 +1,50 @@
+
+    <div id="multibarchart"><svg style="width:900px;height:400px;"></svg></div>
+
+
+    <script>
+
+
+
+        data_multibarchart=[{"values": [{"y": 325, "x": "Dips"}, {"y": 124, "x": "Bacon"}, {"y": 105, "x": "Wings"}, {"y": 101, "x": "Chilli"}, {"y": 95, "x": "Tacos"}, {"y": 85, "x": "Pretzels"}, {"y": 83, "x": "Cookies"}, {"y": 81, "x": "Pizza"}, {"y": 62, "x": "Crackers"}, {"y": 57, "x": "Pastries"}, {"y": 51, "x": "Cupcake"}, {"y": 48, "x": "Sausages"}, {"y": 45, "x": "Salsa"}, {"y": 45, "x": "Sliders"}, {"y": 45, "x": "Wraps"}, {"y": 38, "x": "Meatballs"}, {"y": 36, "x": "Pasta"}, {"y": 35, "x": "Sandwiches"}, {"y": 34, "x": "Queso"}], "key": "Recipes", "yAxis": "1"}, {"values": [{"y": 1319.13, "x": "Dips"}, {"y": 2348.77, "x": "Bacon"}, {"y": 2075.87, "x": "Wings"}, {"y": 1207.81, "x": "Chilli"}, {"y": 2667.35, "x": "Tacos"}, {"y": 2317.81, "x": "Pretzels"}, {"y": 1686.72, "x": "Cookies"}, {"y": 2304.96, "x": "Pizza"}, {"y": 1741.9, "x": "Crackers"}, {"y": 893.32, "x": "Pastries"}, {"y": 1165.63, "x": "Cupcake"}, {"y": 2655.58, "x": "Sausages"}, {"y": 1840.4, "x": "Salsa"}, {"y": 1190.11, "x": "Sliders"}, {"y": 2099.04, "x": "Wraps"}, {"y": 3405.63, "x": "Meatballs"}, {"y": 1709.78, "x": "Pasta"}, {"y": 2827.11, "x": "Sandwiches"}, {"y": 608.47, "x": "Queso"}], "key": "Repins", "yAxis": "1"}];
+
+    nv.addGraph(function() {
+        var chart = nv.models.multiBarChart();
+
+        chart.margin({top: 30, right: 60, bottom: 100, left: 60});
+        chart.xAxis.rotateLabels(45)
+
+        var datum = data_multibarchart;
+
+
+
+
+
+            chart.yAxis
+                .tickFormat(d3.format(',.2f'));
+
+
+      chart.showLegend(true);
+
+
+
+        
+
+
+
+        d3.select('#multibarchart svg')
+            .datum(datum)
+            .transition().duration(500)
+            .attr('width', '900')
+            .attr('height', 400)
+            .call(chart);
+
+        chart.reduceXTicks(false);
+
+
+    });
+
+
+
+
+    </script>
