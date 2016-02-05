@@ -1,9 +1,9 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <link href="../PintrestSuperbowl/nvd3/build/nv.d3.css" rel="stylesheet" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.1/nv.d3.css" rel="stylesheet" type="text/css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script>
-    <script src="../PintrestSuperbowl/nvd3/build/nv.d3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.1/nv.d3.min.js"></script>
 
     <style>
         text {
@@ -54,7 +54,7 @@
         
 
 
-
+    chart.reduceXTicks(false);
         d3.select('#multibarchart svg')
             .datum(datum)
             .transition().duration(500)
@@ -62,7 +62,7 @@
             .attr('height', 400)
             .call(chart);
 
-        chart.reduceXTicks(false);
+    
 
 
     });

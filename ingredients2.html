@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.1/nv.d3.css" rel="stylesheet" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.1/nv.d3.min.js"></script>
+    <style>
+        text {
+            font: 12px sans-serif;
+        }
+        svg {
+            display: block;
+        }
+        html, body, #test1, svg {
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div id="test1" class='with-3d-shadow with-transitions'>
+    <svg style="width:900px;height:400px;"></svg>
+</div>
+
+<script>
+
+    var data = [{"key":"Heavy Foods ", "values": 
+    [
+  {
+    "z": "MEAT",
+    "x": 56.39,
+    "y": 3723.22
+  },
+  {
+    "z": "GARLIC",
+    "x": 31.72,
+    "y": 3167.74
+  },
+  {
+    "z": "CHEESE",
+    "x": 31.28,
+    "y": 3688.75
+  },
+  {
+    "z": "ONION",
+    "x": 30.84,
+    "y": 2275.37
+  },
+  {
+    "z": "PEPPER",
+    "x": 30.4,
+    "y": 3609.75
+  },
+  {
+    "z": "VINEGAR",
+    "x": 27.75,
+    "y": 2327.89
+  },
+  {
+    "z": "BREAD",
+    "x": 25.99,
+    "y": 4683.14
+  },
+  {
+    "z": "BUTTER",
+    "x": 25.55,
+    "y": 4081.74
+  },
+  {
+    "z": "SALT",
+    "x": 25.55,
+    "y": 2919.97
+  },
+  {
+    "z": "POWDER",
+    "x": 23.79,
+    "y": 2418.65
+  },
+  {
+    "z": "OIL",
+    "x": 21.59,
+    "y": 2407.51
+  },
+  {
+    "z": "CREAM CHEESE",
+    "x": 20.26,
+    "y": 4353.57
+  },
+  {
+    "z": "CHEDDAR CHEESE",
+    "x": 18.5,
+    "y": 4983.5
+  },
+  {
+    "z": "FLOUR",
+    "x": 16.3,
+    "y": 4115.49
+  },
+  {
+    "z": "CLOVE",
+    "x": 15.42,
+    "y": 3076.09
+  },
+  {
+    "z": "BROWN SUGAR",
+    "x": 14.98,
+    "y": 3149.74
+  },
+  {
+    "z": "CHILI",
+    "x": 12.33,
+    "y": 1680.21
+  },
+  {
+    "z": "BACON",
+    "x": 13.89,
+    "y": 4570.33
+  },
+  {
+    "z": "SOUR CREAM",
+    "x": 11.89,
+    "y": 5162.56
+  },
+  {
+    "z": "TOMATO",
+    "x": 11.89,
+    "y": 2095
+  },
+  {
+    "z": "WATER",
+    "x": 11.45,
+    "y": 3539.73
+  },
+  {
+    "z": "OLIVE OIL",
+    "x": 11.01,
+    "y": 1641.52
+  },
+  {
+    "z": "KOSHER",
+    "x": 10.57,
+    "y": 2787.38
+  },
+  {
+    "z": "MOZZARELLA",
+    "x": 9.69,
+    "y": 4408.14
+  },
+  {
+    "z": "PARMESAN CHEESE",
+    "x": 9.25,
+    "y": 7368.52
+  },
+  {
+    "z": "EGG",
+    "x": 8.81,
+    "y": 2218.8
+  },
+  {
+    "z": "SUGAR",
+    "x": 8.81,
+    "y": 1489.4
+  },
+  {
+    "z": "CHICKEN",
+    "x": 8.37,
+    "y": 3332.32
+  },
+  {
+    "z": "MUSTARD",
+    "x": 7.93,
+    "y": 1698.89
+  },
+  {
+    "z": "BLACK PEPPER",
+    "x": 7.49,
+    "y": 2827.53
+  },
+  {
+    "z": "GROUND BEEF",
+    "x": 7.49,
+    "y": 3836.24
+  },
+  {
+    "z": "TORTILLA",
+    "x": 7.49,
+    "y": 3107.29
+  },
+  {
+    "z": "CAYENNE",
+    "x": 7.05,
+    "y": 4027.13
+  },
+  {
+    "z": "CUMIN",
+    "x": 7.05,
+    "y": 1263.38
+  },
+  {
+    "z": "MILK",
+    "x": 7.05,
+    "y": 3561.75
+  },
+  {
+    "z": "PARSLEY",
+    "x": 7.05,
+    "y": 7620.69
+  },
+  {
+    "z": "RANCH",
+    "x": 7.05,
+    "y": 2067.81
+  },
+  {
+    "z": "TACO",
+    "x": 7.05,
+    "y": 6227.19
+  },
+  {
+    "z": "WINE",
+    "x": 7.05,
+    "y": 1147
+  },
+  {
+    "z": "WORCESTERSHIRE",
+    "x": 7.05,
+    "y": 2262.94
+  },
+  {
+    "z": "PRETZEL",
+    "x": 6.61,
+    "y": 2211.2
+  },
+  {
+    "z": "JACK",
+    "x": 6.17,
+    "y": 3014.43
+  },
+  {
+    "z": "JALAPENO",
+    "x": 6.17,
+    "y": 2904.14
+  },
+  {
+    "z": "OLIVE",
+    "x": 6.17,
+    "y": 4004.43
+  },
+  {
+    "z": "SWEET",
+    "x": 6.17,
+    "y": 2934.07
+  },
+  {
+    "z": "CORN",
+    "x": 5.73,
+    "y": 4008.92
+  },
+  {
+    "z": "CANOLA OIL",
+    "x": 5.29,
+    "y": 2443.92
+  },
+  {
+    "z": "CRACKER",
+    "x": 5.29,
+    "y": 5123.15
+  },
+  {
+    "z": "HONEY",
+    "x": 5.29,
+    "y": 5874.67
+  },
+  {
+    "z": "JUICE",
+    "x": 5.29,
+    "y": 1921.25
+  },
+  {
+    "z": "LIGHT",
+    "x": 5.29,
+    "y": 3547.33
+  },
+  {
+    "z": "SAUSAGE",
+    "x": 5.29,
+    "y": 967.08
+  },
+  {
+    "z": "SEASONING",
+    "x": 5.29,
+    "y": 3516.67
+  },
+  {
+    "z": "BLUE CHEESE",
+    "x": 4.85,
+    "y": 3532.09
+  },
+  {
+    "z": "SOY SAUCE",
+    "x": 4.85,
+    "y": 2751.18
+  },
+  {
+    "z": "VEGETABLE",
+    "x": 4.85,
+    "y": 1824.36
+  },
+  {
+    "z": "BASIL",
+    "x": 4.41,
+    "y": 6569
+  },
+  {
+    "z": "BEER",
+    "x": 4.41,
+    "y": 1395.3
+  },
+  {
+    "z": "CHEDDAR",
+    "x": 4.41,
+    "y": 1291.1
+  },
+  {
+    "z": "CHIP",
+    "x": 4.41,
+    "y": 2214
+  },
+  {
+    "z": "KETCHUP",
+    "x": 4.41,
+    "y": 1675
+  },
+  {
+    "z": "STRIP",
+    "x": 4.41,
+    "y": 5558.1
+  },
+  {
+    "z": "BAKING SODA",
+    "x": 3.96,
+    "y": 1269.33
+  },
+  {
+    "z": "BONELESS",
+    "x": 3.96,
+    "y": 1597.11
+  },
+  {
+    "z": "BREAST",
+    "x": 3.96,
+    "y": 2602.11
+  },
+  {
+    "z": "CHOCOLATE",
+    "x": 3.96,
+    "y": 1319
+  },
+  {
+    "z": "CILANTRO",
+    "x": 3.96,
+    "y": 1325.11
+  },
+  {
+    "z": "DIJON",
+    "x": 3.96,
+    "y": 675
+  },
+  {
+    "z": "LEMON",
+    "x": 3.96,
+    "y": 1839.33
+  },
+  {
+    "z": "MONTEREY",
+    "x": 3.96,
+    "y": 2906.11
+  },
+  {
+    "z": "OREGANO",
+    "x": 3.96,
+    "y": 5502.56
+  },
+  {
+    "z": "BEAN",
+    "x": 3.52,
+    "y": 1627.88
+  },
+  {
+    "z": "CARROT",
+    "x": 3.52,
+    "y": 1300.75
+  },
+  {
+    "z": "CHICKEN WINGS",
+    "x": 3.52,
+    "y": 1954.88
+  },
+  {
+    "z": "PAPRIKA",
+    "x": 3.52,
+    "y": 3957.63
+  },
+  {
+    "z": "PICKLE",
+    "x": 3.52,
+    "y": 3856.88
+  },
+  {
+    "z": "YEAST",
+    "x": 3.52,
+    "y": 1128.63
+  },
+  {
+    "z": "CELERY",
+    "x": 3.08,
+    "y": 1499.43
+  },
+  {
+    "z": "GRAIN",
+    "x": 3.08,
+    "y": 5249.29
+  },
+  {
+    "z": "GREEK YOGURT",
+    "x": 3.08,
+    "y": 1303.57
+  },
+  {
+    "z": "LIME",
+    "x": 3.08,
+    "y": 1142
+  },
+  {
+    "z": "MAYONNAISE",
+    "x": 3.08,
+    "y": 2426.57
+  },
+  {
+    "z": "MEXICAN",
+    "x": 3.08,
+    "y": 5090.43
+  },
+  {
+    "z": "PANKO",
+    "x": 3.08,
+    "y": 2522
+  },
+  {
+    "z": "PIZZA",
+    "x": 3.08,
+    "y": 6451.86
+  },
+  {
+    "z": "POTATO",
+    "x": 3.08,
+    "y": 6139.57
+  },
+  {
+    "z": "SALSA",
+    "x": 3.08,
+    "y": 1675.43
+  },
+  {
+    "z": "YOGURT",
+    "x": 3.08,
+    "y": 1303.57
+  },
+  {
+    "z": "CHOCOLATE CHIP",
+    "x": 2.64,
+    "y": 3691.17
+  },
+  {
+    "z": "DILL",
+    "x": 2.64,
+    "y": 2172.17
+  },
+  {
+    "z": "DOUGH",
+    "x": 2.64,
+    "y": 2903
+  },
+  {
+    "z": "GROUND BEEF",
+    "x": 2.64,
+    "y": 3578.33
+  },
+  {
+    "z": "HEAVY CREAM",
+    "x": 2.64,
+    "y": 4108.83
+  }]
+
+    },
+
+        {"key": "Healthy Foods", "values":
+
+        [
+  {
+    "z": "GARLIC",
+    "x": 48.37,
+    "y": 1030.04
+  },
+  {
+    "z": "VINEGAR",
+    "x": 48.37,
+    "y": 688.35
+  },
+  {
+    "z": "MEAT",
+    "x": 47.06,
+    "y": 1500.5
+  },
+  {
+    "z": "PEPPER",
+    "x": 44.44,
+    "y": 1284.34
+  },
+  {
+    "z": "SALT",
+    "x": 43.14,
+    "y": 1115.42
+  },
+  {
+    "z": "OIL",
+    "x": 37.25,
+    "y": 707.28
+  },
+  {
+    "z": "ONION",
+    "x": 35.29,
+    "y": 1513.78
+  },
+  {
+    "z": "CLOVE",
+    "x": 24.84,
+    "y": 1020.74
+  },
+  {
+    "z": "CHEESE",
+    "x": 22.88,
+    "y": 1964.94
+  },
+  {
+    "z": "OLIVE OIL",
+    "x": 22.22,
+    "y": 699.18
+  },
+  {
+    "z": "BREAD",
+    "x": 20.26,
+    "y": 1880.48
+  },
+  {
+    "z": "JUICE",
+    "x": 19.61,
+    "y": 711.7
+  },
+  {
+    "z": "BLACK PEPPER",
+    "x": 17.65,
+    "y": 1068.15
+  },
+  {
+    "z": "SALT OIL",
+    "x": 17.65,
+    "y": 672.7
+  },
+  {
+    "z": "FLOUR",
+    "x": 16.34,
+    "y": 2435.24
+  },
+  {
+    "z": "BUTTER",
+    "x": 14.38,
+    "y": 1991.36
+  },
+  {
+    "z": "REFRIGERATE",
+    "x": 14.38,
+    "y": 1034.32
+  },
+  {
+    "z": "SOUR CREAM",
+    "x": 13.73,
+    "y": 981.33
+  },
+  {
+    "z": "TOMATO",
+    "x": 13.73,
+    "y": 785.62
+  },
+  {
+    "z": "CILANTRO",
+    "x": 13.07,
+    "y": 956.85
+  },
+  {
+    "z": "EGGS",
+    "x": 13.07,
+    "y": 943.8
+  },
+  {
+    "z": "LIME",
+    "x": 13.07,
+    "y": 945.4
+  },
+  {
+    "z": "WATER",
+    "x": 13.07,
+    "y": 476.25
+  },
+  {
+    "z": "AVOCADO",
+    "x": 12.42,
+    "y": 330.68
+  },
+  {
+    "z": "MOZZARELLA",
+    "x": 10.46,
+    "y": 816.94
+  },
+  {
+    "z": "YOGURT",
+    "x": 10.46,
+    "y": 923.81
+  },
+  {
+    "z": "CHEDDAR CHEESE",
+    "x": 9.8,
+    "y": 1222.27
+  },
+  {
+    "z": "CHILI",
+    "x": 9.8,
+    "y": 474.2
+  },
+  {
+    "z": "CUMIN",
+    "x": 9.8,
+    "y": 778.33
+  },
+  {
+    "z": "LEMON",
+    "x": 9.8,
+    "y": 854.53
+  },
+  {
+    "z": "PAPRIKA",
+    "x": 9.8,
+    "y": 424.6
+  },
+  {
+    "z": "PARMESAN CHEESE",
+    "x": 9.8,
+    "y": 564.6
+  },
+  {
+    "z": "CAYENNE",
+    "x": 9.15,
+    "y": 3585.43
+  },
+  {
+    "z": "KOSHER",
+    "x": 9.15,
+    "y": 1628.14
+  },
+  {
+    "z": "BEANS",
+    "x": 8.5,
+    "y": 432.54
+  },
+  {
+    "z": "CHICKEN",
+    "x": 8.5,
+    "y": 625.69
+  },
+  {
+    "z": "CREAM CHEESE",
+    "x": 8.5,
+    "y": 3469.85
+  },
+  {
+    "z": "JALAPENO",
+    "x": 8.5,
+    "y": 1837.46
+  },
+  {
+    "z": "MILK",
+    "x": 8.5,
+    "y": 1549.38
+  },
+  {
+    "z": "BLACK BEAN",
+    "x": 7.84,
+    "y": 1346.17
+  },
+  {
+    "z": "SPINACH",
+    "x": 7.84,
+    "y": 647.58
+  },
+  {
+    "z": "TORTILLA",
+    "x": 7.84,
+    "y": 4108
+  },
+  {
+    "z": "BROWN SUGAR",
+    "x": 6.54,
+    "y": 1837.4
+  },
+  {
+    "z": "CORN",
+    "x": 6.54,
+    "y": 615.4
+  },
+  {
+    "z": "FLAKE",
+    "x": 6.54,
+    "y": 1279
+  },
+  {
+    "z": "ALMOND",
+    "x": 5.88,
+    "y": 870.44
+  },
+  {
+    "z": "DILL",
+    "x": 5.88,
+    "y": 499.89
+  },
+  {
+    "z": "GINGER",
+    "x": 5.88,
+    "y": 845.44
+  },
+  {
+    "z": "OLIVE",
+    "x": 5.88,
+    "y": 504.33
+  },
+  {
+    "z": "PARSLEY",
+    "x": 5.88,
+    "y": 1201.44
+  },
+  {
+    "z": "RANCH",
+    "x": 5.88,
+    "y": 1059.67
+  },
+  {
+    "z": "PANKO",
+    "x": 5.23,
+    "y": 688.38
+  },
+  {
+    "z": "SUGAR",
+    "x": 5.23,
+    "y": 2576.63
+  },
+  {
+    "z": "WINE",
+    "x": 5.23,
+    "y": 774.88
+  },
+  {
+    "z": "APPLE CIDER",
+    "x": 4.58,
+    "y": 232.57
+  },
+  {
+    "z": "BACON",
+    "x": 4.58,
+    "y": 1534
+  },
+  {
+    "z": "CAULIFLOWER",
+    "x": 4.58,
+    "y": 1007.14
+  },
+  {
+    "z": "CHICKEN BREAST",
+    "x": 4.58,
+    "y": 5990.43
+  },
+  {
+    "z": "CHICKEN WINGS",
+    "x": 4.58,
+    "y": 1094.71
+  },
+  {
+    "z": "CINNAMON",
+    "x": 4.58,
+    "y": 2602.14
+  },
+  {
+    "z": "HONEY",
+    "x": 4.58,
+    "y": 2122.29
+  },
+  {
+    "z": "LETTUCE",
+    "x": 4.58,
+    "y": 654
+  },
+  {
+    "z": "MUSTARD",
+    "x": 4.58,
+    "y": 1540.71
+  },
+  {
+    "z": "RICE",
+    "x": 4.58,
+    "y": 518.57
+  },
+  {
+    "z": "TACO",
+    "x": 4.58,
+    "y": 594.71
+  },
+  {
+    "z": "PICKLE",
+    "x": 3.92,
+    "y": 565.67
+  },
+  {
+    "z": "YEAST",
+    "x": 3.92,
+    "y": 242
+  },
+  {
+    "z": "BREADCRUMB",
+    "x": 3.27,
+    "y": 894.6
+  },
+  {
+    "z": "CHERRY",
+    "x": 3.27,
+    "y": 328
+  },
+  {
+    "z": "COCONUT",
+    "x": 3.27,
+    "y": 710
+  },
+  {
+    "z": "MAYONNAISE",
+    "x": 3.27,
+    "y": 509.6
+  },
+  {
+    "z": "OREGANO",
+    "x": 3.27,
+    "y": 832
+  },
+  {
+    "z": "PASTA",
+    "x": 3.27,
+    "y": 347.4
+  },
+  {
+    "z": "SWEET POTATO",
+    "x": 3.27,
+    "y": 350.6
+  },
+  {
+    "z": "TURKEY",
+    "x": 3.27,
+    "y": 866
+  },
+  {
+    "z": "VANILLA",
+    "x": 3.27,
+    "y": 2409
+  },
+  {
+    "z": "ARTICHOKE",
+    "x": 2.61,
+    "y": 1330.75
+  },
+  {
+    "z": "BEER",
+    "x": 2.61,
+    "y": 680
+  },
+  {
+    "z": "BLUE CHEESE",
+    "x": 2.61,
+    "y": 8282.75
+  },
+  {
+    "z": "BROTH",
+    "x": 2.61,
+    "y": 271.5
+  },
+  {
+    "z": "BUFFALO",
+    "x": 2.61,
+    "y": 1065.75
+  },
+  {
+    "z": "CASHEW",
+    "x": 2.61,
+    "y": 784.25
+  },
+  {
+    "z": "CHICKPEA",
+    "x": 2.61,
+    "y": 192.5
+  },
+  {
+    "z": "CHIVE",
+    "x": 2.61,
+    "y": 1721.5
+  },
+  {
+    "z": "CORIANDER",
+    "x": 2.61,
+    "y": 219.25
+  },
+  {
+    "z": "DIJON",
+    "x": 2.61,
+    "y": 1969
+  },
+  {
+    "z": "GROUND BEEF",
+    "x": 2.61,
+    "y": 489.5
+  },
+  {
+    "z": "KETCHUP",
+    "x": 2.61,
+    "y": 3288.5
+  },
+  {
+    "z": "LIQUOR",
+    "x": 2.61,
+    "y": 680
+  },
+  {
+    "z": "MONTEREY",
+    "x": 2.61,
+    "y": 789.25
+  },
+  {
+    "z": "OATS",
+    "x": 2.61,
+    "y": 838.75
+  },
+  {
+    "z": "POTATO",
+    "x": 2.61,
+    "y": 2323.5
+  },
+  {
+    "z": "SOY SAUCE",
+    "x": 2.61,
+    "y": 200.25
+  },
+  {
+    "z": "WORCESTERSHIRE",
+    "x": 2.61,
+    "y": 2700.5
+  },
+  {
+    "z": "ZUCCHINI",
+    "x": 2.61,
+    "y": 490.25
+  },
+  {
+    "z": "CANNELLINI",
+    "x": 1.96,
+    "y": 114
+  },
+  {
+    "z": "CARROT",
+    "x": 1.96,
+    "y": 568.67
+  },
+  {
+    "z": "CHEDDAR",
+    "x": 1.96,
+    "y": 298.33
+  },
+  {
+    "z": "CRACKER",
+    "x": 1.96,
+    "y": 148.67
+  },
+  {
+    "z": "CUCUMBER",
+    "x": 1.96,
+    "y": 561.67
+  },
+  {
+    "z": "HOISIN",
+    "x": 1.96,
+    "y": 452
+  },
+  {
+    "z": "JALAPENOS",
+    "x": 1.96,
+    "y": 374.67
+  },
+  {
+    "z": "ORANGE",
+    "x": 1.96,
+    "y": 599.67
+  }
+]
+    }
+
+
+]
+    nv.utils.symbolMap.set('thin-x', function(size) {
+        size = Math.sqrt(size);
+        return 'M' + (-size/2) + ',' + (-size/2) +
+                'l' + size + ',' + size +
+                'm0,' + -(size) +
+                'l' + (-size) + ',' + size;
+    });
+    // register our custom symbols to nvd3
+    // make sure your path is valid given any size because size scales if the chart scales.
+    // create the chart
+    var chart;
+    nv.addGraph(function() {
+        chart = nv.models.scatterChart()
+            .showDistX(true)
+            .showDistY(true)
+            .useVoronoi(true)
+            .color(d3.scale.category10().range())
+            .duration(300)
+        ;
+        chart.dispatch.on('renderEnd', function(){
+            console.log('render complete');
+        });
+
+        chart.xAxis.tickFormat(d3.format('.01f'));
+        chart.xAxis.axisLabel("% of Recipes");
+        chart.yAxis.tickFormat(d3.format('1f'));
+        chart.yAxis.axisLabel(("Number of Repins"));
+
+        d3.select('#test1 svg')
+            .datum(data)
+            .call(chart);
+
+
+
+        chart.tooltip.contentGenerator(function (d) {
+          var ptIdx = d.pointIndex;
+          var serIdx = d.seriesIndex;
+          z = d.series[serIdx].values[ptIdx].z
+          x = d.series[serIdx].values[ptIdx].x
+          y = d.series[serIdx].values[ptIdx].y
+          return "<h3>"+"Ingredient:"+z+"</h3>"+'\n'+"<b>Repins: </b>"+y+'\n'+ "<b>Percent of Mentions: </b>"+x+"%";
+        });
+        return chart;
+    });
+
+</script>
+</body>
+</html>
