@@ -1,4 +1,4 @@
-# PintrestSuperbowl
+# PinterestSuperbowl
 ### Completed: 2/4/2016
 Findings presented in Business Insider
 See Iypthon notebook for data
